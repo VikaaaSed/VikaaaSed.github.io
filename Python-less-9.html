@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Задачи по Python — печать</title>
+<style>
+  /* ===== Базовые стили (экран + печать) ===== */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 13pt;
+    line-height: 1.45;
+    color: #000;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page {
+    width: 190mm;
+    min-height: 270mm;
+    margin: 0 auto;
+    padding: 15mm 10mm;
+  }
+
+  h1 {
+    font-size: 20pt;
+    text-align: center;
+    margin: 0 0 4mm 0;
+    border-bottom: 2px solid #000;
+    padding-bottom: 3mm;
+  }
+
+  h2 {
+    font-size: 15pt;
+    margin: 6mm 0 3mm 0;
+    border-bottom: 1px solid #000;
+    padding-bottom: 1.5mm;
+  }
+
+  h3 {
+    font-size: 13pt;
+    margin: 5mm 0 1mm 0;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+    margin: 0 0 6mm 0;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000;
+    padding: 2mm 4mm;
+    margin-bottom: 6mm;
+    font-size: 11pt;
+  }
+
+  .meta span {
+    display: inline-block;
+  }
+
+  .line {
+    border-bottom: 1px solid #000;
+    display: inline-block;
+    min-width: 45mm;
+    height: 4mm;
+  }
+
+  /* ===== Карточка задачи ===== */
+  .task {
+    border: 1.5px solid #000;
+    border-radius: 2mm;
+    padding: 3mm 4mm;
+    margin-bottom: 4mm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .task .num {
+    font-weight: bold;
+    font-size: 13pt;
+    margin-bottom: 1.5mm;
+  }
+
+  .task p {
+    margin: 1.5mm 0;
+  }
+
+  .example {
+    border-left: 3px solid #000;
+    padding-left: 3mm;
+    margin: 2mm 0;
+    font-size: 11pt;
+    font-style: italic;
+  }
+
+  /* ===== Блок кода ===== */
+  pre {
+    font-family: "Courier New", monospace;
+    font-size: 11pt;
+    line-height: 1.35;
+    background: #f4f4f4;
+    border: 1px solid #999;
+    border-radius: 1.5mm;
+    padding: 2.5mm 3mm;
+    margin: 2mm 0;
+    white-space: pre-wrap;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  code {
+    font-family: "Courier New", monospace;
+    font-size: 11.5pt;
+  }
+
+  /* ===== Строки для ответа ===== */
+  .answer-lines {
+    margin-top: 2mm;
+    font-size: 11pt;
+  }
+
+  .answer-lines div {
+    border-bottom: 1px dotted #000;
+    height: 6mm;
+  }
+
+  /* ===== Заявленный ответ ===== */
+  .declared {
+    border: 1px dashed #000;
+    padding: 1.5mm 3mm;
+    margin-top: 2mm;
+    font-size: 11.5pt;
+  }
+
+  .declared strong {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== Разделитель страниц ===== */
+  .page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  /* ===== Ключ учителя ===== */
+  .key-block {
+    border: 1px solid #000;
+    padding: 2.5mm 3mm;
+    margin-bottom: 4mm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .key-block .key-title {
+    font-weight: bold;
+    margin-bottom: 1.5mm;
+  }
+
+  .key-block .error {
+    margin: 1.5mm 0;
+  }
+
+  .key-block .fix {
+    margin: 1.5mm 0;
+  }
+
+  .label {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .note {
+    font-size: 10.5pt;
+    font-style: italic;
+    border-top: 1px solid #000;
+    padding-top: 2mm;
+    margin-top: 4mm;
+  }
+
+  /* ===== Печать ===== */
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  @media print {
+    body {
+      font-size: 12pt;
+    }
+    .page {
+      width: auto;
+      min-height: auto;
+      padding: 0;
+      margin: 0;
+    }
+    .no-print {
+      display: none !important;
+    }
+    pre {
+      background: #fff !important;
+      border: 1px solid #000;
+    }
+    .task,
+    .key-block {
+      box-shadow: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- ЧАСТЬ 1 — ДЛЯ РЕБЯТ                                          -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: практика ввода и вывода</h1>
+  <p class="subtitle">Часть 1. Реши сам</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+    <span>Оценка: <span class="line" style="min-width:20mm;"></span></span>
+  </div>
+
+  <h2>Задачи</h2>
+
+  <div class="task">
+    <div class="num">Задача 1. Кот-обжора</div>
+    <p>Кот Барсик съел <code>a</code> сосисок, а пёс Шарик — <code>b</code> сосисок. Введи два числа и выведи, сколько сосисок съели вместе.</p>
+    <div class="example">Пример: ввод <b>4</b> и <b>3</b> → вывод: <b>Всего сосисок: 7</b></div>
+    <div class="answer-lines">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 2. Пиратский клад</div>
+    <p>Пират нашёл <code>a</code> золотых монет и <code>b</code> серебряных. Выведи общее количество монет.</p>
+    <div class="example">Пример: ввод <b>12</b> и <b>8</b> → вывод: <b>Всего монет: 20</b></div>
+    <div class="answer-lines">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 3. Робот-пылесос</div>
+    <p>Робот убирает комнату длиной <code>a</code> метров и шириной <code>b</code> метров. Выведи площадь и периметр комнаты.</p>
+    <div class="example">Пример: ввод <b>5</b> и <b>3</b> → вывод:<br>
+      Площадь: 15.0<br>
+      Периметр: 16.0
+    </div>
+    <div class="answer-lines">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 4. Дракон проспал</div>
+    <p>Дракон спал <code>h</code> часов, <code>m</code> минут и <code>s</code> секунд. Выведи, сколько всего секунд он проспал.</p>
+    <div class="example">Пример: ввод <b>2</b>, <b>15</b>, <b>30</b> → вывод: <b>Всего секунд: 8130</b></div>
+    <div class="answer-lines">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 5. Пицца для гномов</div>
+    <p>Гном заказал круглую пиццу радиусом <code>r</code>. Выведи её площадь. Считай, что <code>π = 3.14</code>.</p>
+    <div class="example">Пример: ввод <b>10</b> → вывод: <b>Площадь пиццы: 314.0</b></div>
+    <div class="answer-lines">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 6. Космический код</div>
+    <p>Инопланетянин ввёл двузначное число. Нужно вывести сумму его первой и последней цифры. <b>Реши через строки.</b></p>
+    <div class="example">Пример: ввод <b>47</b> → вывод: <b>Сумма цифр: 11</b></div>
+    <div class="answer-lines">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ============================================================ -->
+<!-- ЧАСТЬ 2 — ДЛЯ РЕБЯТ                                          -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: практика ввода и вывода</h1>
+  <p class="subtitle">Часть 2. Найди ошибку</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+    <span>Оценка: <span class="line" style="min-width:20mm;"></span></span>
+  </div>
+
+  <p style="margin-bottom:4mm;"><b>Инструкция:</b> в каждой задаче код уже написан и даже заявлен правильный ответ. Но внутри есть ошибка. Найди её и объясни, что нужно исправить.</p>
+
+  <div class="task">
+    <div class="num">Задача 1. Робот и детали</div>
+    <p>Робот собрал 3 болта и 4 гайки. Должно получиться 7 деталей.</p>
+<pre>a = input("Сколько болтов? ")
+b = input("Сколько гаек? ")
+print("Всего деталей:", a + b)</pre>
+    <div class="declared"><strong>Заявленный ответ:</strong> 7</div>
+    <p style="margin-top:2mm;">В чём ошибка? <span class="line" style="min-width:120mm;"></span></p>
+    <div class="answer-lines">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 2. Кот и сметана</div>
+    <p>Одна пачка сметаны стоит 50 рублей. Кот купил 3 пачки. Должно получиться 150 рублей.</p>
+<pre>price = int(input("Цена пачки: "))
+count = int(input("Сколько пачек: "))
+print("Итого:", price + count)</pre>
+    <div class="declared"><strong>Заявленный ответ:</strong> 150</div>
+    <p style="margin-top:2mm;">В чём ошибка? <span class="line" style="min-width:120mm;"></span></p>
+    <div class="answer-lines">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 3. Дракон и температура</div>
+    <p>Дракон измерил 100 °C. В Фаренгейтах должно быть 212.</p>
+<pre>c = input("Градусы Цельсия: ")
+f = c * 9 / 5 + 32
+print("Фаренгейты:", f)</pre>
+    <div class="declared"><strong>Заявленный ответ:</strong> 212.0</div>
+    <p style="margin-top:2mm;">В чём ошибка? <span class="line" style="min-width:120mm;"></span></p>
+    <div class="answer-lines">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 4. Гном и средняя оценка</div>
+    <p>Гном получил оценки 3, 6 и 9. Среднее должно быть 6.</p>
+<pre>a = int(input("Оценка 1: "))
+b = int(input("Оценка 2: "))
+c = int(input("Оценка 3: "))
+print("Среднее:", a + b + c / 3)</pre>
+    <div class="declared"><strong>Заявленный ответ:</strong> 6.0</div>
+    <p style="margin-top:2mm;">В чём ошибка? <span class="line" style="min-width:120mm;"></span></p>
+    <div class="answer-lines">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 5. Инопланетный код</div>
+    <p>Инопланетянин ввёл число 47. Сумма цифр должна быть 11.</p>
+<pre>num = input("Двузначное число: ")
+print("Сумма цифр:", int(num[0]) + int(num[2]))</pre>
+    <div class="declared"><strong>Заявленный ответ:</strong> 11</div>
+    <p style="margin-top:2mm;">В чём ошибка? <span class="line" style="min-width:120mm;"></span></p>
+    <div class="answer-lines">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ============================================================ -->
+<!-- ЛИСТ УЧИТЕЛЯ — КЛЮЧИ                                         -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Для учителя: ключи и решения</h1>
+  <p class="subtitle">Не показывать ученикам</p>
+
+  <h2>Часть 1. Реши сам — эталонные решения</h2>
+
+  <div class="key-block">
+    <div class="key-title">Задача 1. Кот-обжора</div>
+<pre>a = int(input("Сколько съел Барсик? "))
+b = int(input("Сколько съел Шарик? "))
+print("Всего сосисок:", a + b)</pre>
+    <p><span class="label">Ответ:</span> для 4 и 3 → <b>7</b>.</p>
+    <p><span class="label">Типичные ошибки:</span> забыли <code>int()</code> — тогда получится «43».</p>
+  </div>
+
+  <div class="key-block">
+    <div class="key-title">Задача 2. Пиратский клад</div>
+<pre>a = int(input("Золотых монет: "))
+b = int(input("Серебряных монет: "))
+print("Всего монет:", a + b)</pre>
+    <p><span class="label">Ответ:</span> для 12 и 8 → <b>20</b>.</p>
+    <p><span class="label">Типичные ошибки:</span> перепутали <code>+</code> и <code>*</code>, забыли <code>int()</code>.</p>
+  </div>
+
+  <div class="key-block">
+    <div class="key-title">Задача 3. Робот-пылесос</div>
+<pre>a = float(input("Длина: "))
+b = float(input("Ширина: "))
+print("Площадь:", a * b)
+print("Периметр:", 2 * (a + b))</pre>
+    <p><span class="label">Ответ:</span> для 5 и 3 → площадь <b>15.0</b>, периметр <b>16.0</b>.</p>
+    <p><span class="label">Типичные ошибки:</span> периметр как <code>a + b</code> без удвоения; <code>int</code> вместо <code>float</code>.</p>
+  </div>
+
+  <div class="key-block">
+    <div class="key-title">Задача 4. Дракон проспал</div>
+<pre>h = int(input("Часы: "))
+m = int(input("Минуты: "))
+s = int(input("Секунды: "))
+total = h * 3600 + m * 60 + s
+print("Всего секунд:", total)</pre>
+    <p><span class="label">Ответ:</span> для 2, 15, 30 → <b>8130</b>.</p>
+    <p><span class="label">Типичные ошибки:</span> 60 вместо 3600; забыли умножить минуты на 60.</p>
+  </div>
+
+  <div class="key-block">
+    <div class="key-title">Задача 5. Пицца для гномов</div>
+<pre>r = float(input("Радиус: "))
+pi = 3.14
+print("Площадь пиццы:", pi * r * r)</pre>
+    <p><span class="label">Ответ:</span> для 10 → <b>314.0</b>.</p>
+    <p><span class="label">Типичные ошибки:</span> <code>pi * r * 2</code> (длина окружности вместо площади); забыли возвести в квадрат.</p>
+  </div>
+
+  <div class="key-block">
+    <div class="key-title">Задача 6. Космический код</div>
+<pre>num = input("Двузначное число: ")
+print("Сумма цифр:", int(num[0]) + int(num[-1]))</pre>
+    <p><span class="label">Ответ:</span> для 47 → <b>11</b>.</p>
+    <p><span class="label">Типичные ошибки:</span> <code>int(num)</code> целиком; индекс <code>1</code> вместо <code>-1</code> (сработает только для двузначных).</p>
+    <p><span class="label">Примечание:</span> договориться вводить только положительные двузначные числа.</p>
+  </div>
+
+  <h2>Часть 2. Найди ошибку — что не так и как исправить</h2>
+
+  <div class="key-block">
+    <div class="key-title">Задача 1. Робот и детали</div>
+    <div class="error"><span class="label">Ошибка:</span> <code>input()</code> возвращает строку, поэтому <code>"3" + "4"</code> даёт <code>"34"</code>, а не <b>7</b>.</div>
+    <div class="fix"><span class="label">Исправление:</span></div>
+<pre>a = int(input("Сколько болтов? "))
+b = int(input("Сколько гаек? "))
+print("Всего деталей:", a + b)</pre>
+  </div>
+
+  <div class="key-block">
+    <div class="key-title">Задача 2. Кот и сметана</div>
+    <div class="error"><span class="label">Ошибка:</span> вместо умножения стоит сложение.</div>
+    <div class="fix"><span class="label">Исправление:</span></div>
+<pre>print("Итого:", price * count)</pre>
+  </div>
+
+  <div class="key-block">
+    <div class="key-title">Задача 3. Дракон и температура</div>
+    <div class="error"><span class="label">Ошибка:</span> <code>c</code> — строка, умножать строку на число нельзя (получится повторение строки, а потом ошибка).</div>
+    <div class="fix"><span class="label">Исправление:</span></div>
+<pre>c = float(input("Градусы Цельсия: "))
+f = c * 9 / 5 + 32
+print("Фаренгейты:", f)</pre>
+  </div>
+
+  <div class="key-block">
+    <div class="key-title">Задача 4. Гном и средняя оценка</div>
+    <div class="error"><span class="label">Ошибка:</span> деление выполняется только для <code>c</code>, нужны скобки. При 3, 6, 9 получится <b>12.0</b>, а не <b>6.0</b>.</div>
+    <div class="fix"><span class="label">Исправление:</span></div>
+<pre>print("Среднее:", (a + b + c) / 3)</pre>
+  </div>
+
+  <div class="key-block">
+    <div class="key-title">Задача 5. Инопланетный код</div>
+    <div class="error"><span class="label">Ошибка:</span> у двузначного числа нет индекса <code>2</code> — будет <code>IndexError</code>. Есть индексы <code>0</code> и <code>1</code> (или <code>0</code> и <code>-1</code>).</div>
+    <div class="fix"><span class="label">Исправление:</span></div>
+<pre>print("Сумма цифр:", int(num[0]) + int(num[-1]))</pre>
+  </div>
+
+  <p class="note">
+    Совет: перед печатью проверь масштаб в диалоге печати — должен быть 100% (или «Реальный размер»), без полей «по умолчанию». Стили уже настроены на A4.
+  </p>
+
+</div>
+
+</body>
+</html>
