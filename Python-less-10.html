@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Python: ветвления и строки — для ученика</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 13pt;
+    line-height: 1.45;
+    color: #000;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page {
+    width: 190mm;
+    min-height: 270mm;
+    margin: 0 auto;
+    padding: 15mm 10mm;
+  }
+
+  h1 {
+    font-size: 20pt;
+    text-align: center;
+    margin: 0 0 3mm 0;
+    border-bottom: 2px solid #000;
+    padding-bottom: 3mm;
+  }
+
+  h2 {
+    font-size: 15pt;
+    margin: 6mm 0 3mm 0;
+    border-bottom: 1px solid #000;
+    padding-bottom: 1.5mm;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+    margin: 0 0 5mm 0;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000;
+    padding: 2mm 4mm;
+    margin-bottom: 5mm;
+    font-size: 11pt;
+  }
+
+  .line {
+    border-bottom: 1px solid #000;
+    display: inline-block;
+    min-width: 45mm;
+    height: 4mm;
+  }
+
+  .task {
+    border: 1.5px solid #000;
+    border-radius: 2mm;
+    padding: 3mm 4mm;
+    margin-bottom: 4mm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .task .num {
+    font-weight: bold;
+    font-size: 13pt;
+    margin-bottom: 1.5mm;
+  }
+
+  .task p { margin: 1.5mm 0; }
+
+  .example {
+    border-left: 3px solid #000;
+    padding-left: 3mm;
+    margin: 2mm 0;
+    font-size: 11pt;
+    font-style: italic;
+  }
+
+  .example pre {
+    font-family: "Courier New", monospace;
+    font-style: normal;
+    margin: 1mm 0;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  pre {
+    font-family: "Courier New", monospace;
+    font-size: 11pt;
+    line-height: 1.35;
+    background: #f4f4f4;
+    border: 1px solid #999;
+    border-radius: 1.5mm;
+    padding: 2.5mm 3mm;
+    margin: 2mm 0;
+    white-space: pre-wrap;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  code {
+    font-family: "Courier New", monospace;
+    font-size: 11.5pt;
+  }
+
+  .answer-lines { margin-top: 2mm; font-size: 11pt; }
+
+  .answer-lines div {
+    border-bottom: 1px dotted #000;
+    height: 6mm;
+  }
+
+  .declared {
+    border: 1px dashed #000;
+    padding: 1.5mm 3mm;
+    margin-top: 2mm;
+    font-size: 11.5pt;
+  }
+
+  .declared strong { text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  @page { size: A4; margin: 10mm; }
+
+  @media print {
+    body { font-size: 12pt; }
+    .page { width: auto; min-height: auto; padding: 0; margin: 0; }
+    pre { background: #fff !important; border: 1px solid #000; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- ЧАСТЬ 1 — РЕШИ САМ                                           -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: ветвления и строки</h1>
+  <p class="subtitle">Часть 1. Реши сам</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+    <span>Оценка: <span class="line" style="min-width:20mm;"></span></span>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 1. Стражник и пароль</div>
+    <p>Стражник пускает в замок только по паролю <code>дракон</code>. Введи пароль. Если он верный — выведи <code>Проходи!</code>, иначе — <code>Стоп!</code>.</p>
+    <div class="example">Пример: ввод <b>дракон</b> → <b>Проходи!</b><br>Ввод <b>котик</b> → <b>Стоп!</b></div>
+    <div class="answer-lines"><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 2. Кот и температура</div>
+    <p>Кот Рыжик идёт гулять, если на улице <b>больше 15 градусов</b>. Введи температуру и подскажи коту.</p>
+    <div class="example">Пример: ввод <b>20</b> → <b>Рыжик идёт гулять!</b><br>Ввод <b>10</b> → <b>Рыжик остаётся дома.</b></div>
+    <div class="answer-lines"><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 3. Чётное или нечётное</div>
+    <p>Робот проверяет числа. Введи число и скажи, чётное оно или нечётное.</p>
+    <div class="example">Пример: ввод <b>8</b> → <b>Чётное</b><br>Ввод <b>7</b> → <b>Нечётное</b></div>
+    <div class="answer-lines"><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 4. Первая и последняя</div>
+    <p>Инопланетянин изучает слова. Введи слово, выведи его первую и последнюю буквы, а потом скажи, совпадают ли они.</p>
+    <div class="example">Пример для <b>казак</b>:<pre>Первая: к
+Последняя: к
+Совпадают!</pre>Пример для <b>кот</b>:<pre>Первая: к
+Последняя: т
+Не совпадают.</pre></div>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 5. Гласная или согласная</div>
+    <p>Пират забыл буквы. Введи слово и проверь, с какой буквы оно начинается — с гласной или с согласной.</p>
+    <div class="example">Пример: ввод <b>арбуз</b> → <b>Гласная</b><br>Ввод <b>банан</b> → <b>Согласная</b></div>
+    <p style="font-size:11pt; font-style:italic;">Подсказка: гласные — <code>а е ё и о у ы э ю я</code> (и заглавные тоже).</p>
+    <div class="answer-lines"><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 6. Палиндром</div>
+    <p>Дракон любит слова, которые читаются одинаково с обеих сторон. Введи слово и проверь, палиндром ли это.</p>
+    <div class="example">Пример: ввод <b>шалаш</b> → <b>Палиндром</b><br>Ввод <b>дракон</b> → <b>Не палиндром</b></div>
+    <p style="font-size:11pt; font-style:italic;">Подсказка: перевёрнутая строка — это <code>word[::-1]</code>.</p>
+    <div class="answer-lines"><div></div><div></div><div></div></div>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ============================================================ -->
+<!-- ЧАСТЬ 2 — НАЙДИ ОШИБКУ                                       -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: ветвления и строки</h1>
+  <p class="subtitle">Часть 2. Найди ошибку</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+    <span>Оценка: <span class="line" style="min-width:20mm;"></span></span>
+  </div>
+
+  <p style="margin-bottom:4mm;"><b>Инструкция:</b> в каждой задаче код уже написан и заявлен правильный ответ. Но внутри есть ошибка — программа падает или выдаёт не то. Найди её и объясни, что нужно исправить.</p>
+
+  <div class="task">
+    <div class="num">Задача 1. Стражник-новичок</div>
+    <p>Должно вывести <code>Проходи!</code> при пароле <code>дракон</code>.</p>
+<pre>password = input("Пароль: ")
+if password = "дракон":
+    print("Проходи!")
+else:
+    print("Стоп!")</pre>
+    <div class="declared"><strong>Заявленный ответ:</strong> Проходи!</div>
+    <p style="margin-top:2mm;">В чём ошибка? <span class="line" style="min-width:110mm;"></span></p>
+    <div class="answer-lines"><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 2. Робот-охранник</div>
+    <p>Должно вывести <code>Взрослый</code> при возрасте 20.</p>
+<pre>age = int(input("Возраст: "))
+if age >= 18:
+print("Взрослый")
+else:
+    print("Ребёнок")</pre>
+    <div class="declared"><strong>Заявленный ответ:</strong> Взрослый</div>
+    <p style="margin-top:2mm;">В чём ошибка? <span class="line" style="min-width:110mm;"></span></p>
+    <div class="answer-lines"><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 3. Гном и число</div>
+    <p>Должно вывести <code>Больше 10</code> при вводе 42.</p>
+<pre>num = input("Число: ")
+if num &gt; 10:
+    print("Больше 10")
+else:
+    print("Не больше 10")</pre>
+    <div class="declared"><strong>Заявленный ответ:</strong> Больше 10</div>
+    <p style="margin-top:2mm;">В чём ошибка? <span class="line" style="min-width:110mm;"></span></p>
+    <div class="answer-lines"><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 4. Инопланетянин и слово</div>
+    <p>Для слова <code>кот</code> должно вывести <code>Последняя буква: т</code>.</p>
+<pre>word = input("Слово: ")
+print("Последняя буква:", word[1])</pre>
+    <div class="declared"><strong>Заявленный ответ:</strong> Последняя буква: т</div>
+    <p style="margin-top:2mm;">В чём ошибка? <span class="line" style="min-width:110mm;"></span></p>
+    <div class="answer-lines"><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 5. Кружок «Подросток»</div>
+    <p>Для возраста 14 должно вывести <code>Подросток</code>.</p>
+<pre>age = int(input("Возраст: "))
+if age &gt; 14 and age &lt; 18:
+    print("Подросток")
+else:
+    print("Не подросток")</pre>
+    <div class="declared"><strong>Заявленный ответ:</strong> Подросток</div>
+    <p style="margin-top:2mm;">В чём ошибка? <span class="line" style="min-width:110mm;"></span></p>
+    <div class="answer-lines"><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 6. Дракон и Анна</div>
+    <p>Для слова <code>Анна</code> должно вывести <code>Палиндром</code>.</p>
+<pre>word = input("Слово: ")
+if word == word[::-1]:
+    print("Палиндром")
+else:
+    print("Не палиндром")</pre>
+    <div class="declared"><strong>Заявленный ответ:</strong> Палиндром</div>
+    <p style="margin-top:2mm;">В чём ошибка? <span class="line" style="min-width:110mm;"></span></p>
+    <div class="answer-lines"><div></div><div></div></div>
+  </div>
+
+</div>
+
+</body>
+</html>
