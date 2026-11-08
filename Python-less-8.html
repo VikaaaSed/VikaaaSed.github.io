@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>10 задач по Python — для печати</title>
+<style>
+  /* ===== Базовые настройки для печати ===== */
+  @page {
+    size: A4;
+    margin: 15mm 15mm 15mm 15mm;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "DejaVu Sans", "Segoe UI", Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.45;
+    color: #111;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+
+  /* Экранная «бумага» (не влияет на печать) */
+  @media screen {
+    body {
+      background: #e9e9e9;
+      padding: 20px;
+    }
+    .page {
+      background: #fff;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 20px;
+      padding: 15mm;
+      box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    }
+  }
+
+  /* ===== Заголовки ===== */
+  h1 {
+    font-size: 18pt;
+    margin: 0 0 4px;
+    text-align: center;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 10pt;
+    color: #555;
+    margin: 0 0 16px;
+  }
+
+  h2 {
+    font-size: 13pt;
+    margin: 18px 0 8px;
+    padding-bottom: 3px;
+    border-bottom: 1.5px solid #333;
+  }
+
+  h3 {
+    font-size: 11.5pt;
+    margin: 12px 0 4px;
+  }
+
+  /* ===== Задачи ===== */
+  .task {
+    margin: 0 0 10px;
+    padding: 6px 10px;
+    border-left: 3px solid #444;
+    background: #f7f7f7;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .task .num {
+    font-weight: bold;
+    color: #000;
+  }
+
+  .task .formula {
+    font-family: "DejaVu Sans Mono", Consolas, monospace;
+    font-size: 10pt;
+    background: #eee;
+    padding: 1px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  /* ===== Код ===== */
+  pre {
+    font-family: "DejaVu Sans Mono", Consolas, monospace;
+    font-size: 9.5pt;
+    line-height: 1.35;
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 10px;
+    margin: 4px 0 12px;
+    white-space: pre-wrap;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  code {
+    font-family: "DejaVu Sans Mono", Consolas, monospace;
+    font-size: 10pt;
+    background: #eee;
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+
+  /* ===== Разрыв страницы ===== */
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  /* ===== Таблица ===== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+    margin: 8px 0 14px;
+    break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #999;
+    padding: 5px 8px;
+    text-align: left;
+  }
+
+  th {
+    background: #eaeaea;
+  }
+
+  /* ===== Памятка ===== */
+  .memo {
+    margin-top: 16px;
+    padding: 10px 14px;
+    border: 1.5px dashed #666;
+    border-radius: 6px;
+    background: #fafafa;
+    font-size: 10.5pt;
+  }
+
+  .memo ul {
+    margin: 6px 0 0;
+    padding-left: 20px;
+  }
+
+  .memo li {
+    margin: 2px 0;
+  }
+
+  /* ===== Подвал ===== */
+  .footer-note {
+    margin-top: 18px;
+    font-size: 9pt;
+    color: #666;
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ===== Печать: убираем фоны у body, оставляем у блоков ===== */
+  @media print {
+    body {
+      background: #fff;
+      padding: 0;
+    }
+    .page {
+      width: auto;
+      min-height: auto;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+    .task {
+      background: #fff;
+      border-left: 2px solid #000;
+    }
+    pre {
+      background: #fff;
+      border: 1px solid #000;
+    }
+    th {
+      background: #eee !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= СТРАНИЦА 1: ЗАДАЧИ ДЛЯ УЧЕНИКА ================= -->
+<div class="page">
+
+  <h1>10 задач по Python</h1>
+  <p class="subtitle">Возрастающая сложность · только <code>input()</code>, <code>print()</code> и математика до 7 класса</p>
+
+  <h2>Условия задач</h2>
+
+  <div class="task">
+    <span class="num">1. Площадь прямоугольника.</span>
+    Пользователь вводит длину и ширину. Выведите площадь.
+  </div>
+
+  <div class="task">
+    <span class="num">2. Периметр треугольника.</span>
+    Пользователь вводит три стороны треугольника. Выведите периметр.
+  </div>
+
+  <div class="task">
+    <span class="num">3. Площадь круга.</span>
+    Пользователь вводит радиус. Выведите площадь круга (<span class="formula">π ≈ 3.14</span>).
+  </div>
+
+  <div class="task">
+    <span class="num">4. Объём параллелепипеда.</span>
+    Пользователь вводит длину, ширину и высоту. Выведите объём.
+  </div>
+
+  <div class="task">
+    <span class="num">5. Средняя скорость.</span>
+    Пользователь вводит путь (км) и время (ч). Выведите скорость по формуле
+    <span class="formula">v = s / t</span>.
+  </div>
+
+  <div class="task">
+    <span class="num">6. Проценты от числа.</span>
+    Пользователь вводит число и процент. Выведите результат.
+  </div>
+
+  <div class="task">
+    <span class="num">7. Периметр и площадь круга.</span>
+    Пользователь вводит радиус. Выведите длину окружности
+    <span class="formula">C = 2πr</span> и площадь <span class="formula">S = πr²</span>.
+  </div>
+
+  <div class="task">
+    <span class="num">8. Перевод часов в секунды.</span>
+    Пользователь вводит часы, минуты и секунды. Выведите общее количество секунд.
+  </div>
+
+  <div class="task">
+    <span class="num">9. Сложные проценты.</span>
+    Пользователь вводит вклад <span class="formula">P</span>, годовую ставку
+    <span class="formula">r</span> (%) и количество лет <span class="formula">n</span>.
+    Выведите итоговую сумму по формуле
+    <span class="formula">S = P · (1 + r/100)<sup>n</sup></span>.
+  </div>
+
+  <div class="task">
+    <span class="num">10. Теорема Пифагора.</span>
+    Пользователь вводит два катета. Выведите гипотенузу по формуле
+    <span class="formula">c = √(a² + b²)</span>.
+  </div>
+
+  <div class="task">
+    <span class="num">Бонус. Формула Герона.</span>
+    Пользователь вводит три стороны треугольника. Выведите площадь по формуле Герона.
+  </div>
+
+  <h2>Прогрессия сложности</h2>
+
+  <table>
+    <thead>
+      <tr><th style="width:22%">Задачи</th><th>Что тренируется</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1–2</td><td>Простые формулы, сложение/умножение</td></tr>
+      <tr><td>3–4</td><td>Использование константы π, три переменные</td></tr>
+      <tr><td>5–6</td><td>Деление, проценты</td></tr>
+      <tr><td>7–8</td><td>Несколько вычислений в одной задаче</td></tr>
+      <tr><td>9–10</td><td>Степень <code>**</code>, квадратный корень <code>** 0.5</code></td></tr>
+      <tr><td>Бонус</td><td>Комбинированная формула</td></tr>
+    </tbody>
+  </table>
+
+  <div class="memo">
+    <strong>Памятка для ученика</strong>
+    <ul>
+      <li><code>input()</code> — ввод с клавиатуры (возвращает строку)</li>
+      <li><code>float()</code> — преобразование в дробное число</li>
+      <li><code>int()</code> — преобразование в целое число</li>
+      <li><code>**</code> — возведение в степень</li>
+      <li><code>** 0.5</code> — квадратный корень</li>
+      <li><code>π ≈ 3.14</code></li>
+    </ul>
+  </div>
+
+  <p class="footer-note">Можно разбить на два занятия: задачи 1–6 (первое), 7–10 + бонус (второе).</p>
+
+</div>
+
+<!-- ================= СТРАНИЦА 2: РЕШЕНИЯ ДЛЯ УЧИТЕЛЯ ================= -->
+<div class="page page-break">
+
+  <h1>Решения (для учителя)</h1>
+  <p class="subtitle">10 задач по Python · возрастающая сложность</p>
+
+  <h3>1. Площадь прямоугольника</h3>
+  <pre>a = float(input("Длина: "))
+b = float(input("Ширина: "))
+print("Площадь:", a * b)</pre>
+
+  <h3>2. Периметр треугольника</h3>
+  <pre>a = float(input("Сторона 1: "))
+b = float(input("Сторона 2: "))
+c = float(input("Сторона 3: "))
+print("Периметр:", a + b + c)</pre>
+
+  <h3>3. Площадь круга</h3>
+  <pre>r = float(input("Радиус: "))
+pi = 3.14
+print("Площадь круга:", pi * r * r)</pre>
+
+  <h3>4. Объём параллелепипеда</h3>
+  <pre>a = float(input("Длина: "))
+b = float(input("Ширина: "))
+c = float(input("Высота: "))
+print("Объём:", a * b * c)</pre>
+
+  <h3>5. Средняя скорость</h3>
+  <pre>s = float(input("Путь (км): "))
+t = float(input("Время (ч): "))
+v = s / t
+print("Скорость:", v, "км/ч")</pre>
+
+  <h3>6. Проценты от числа</h3>
+  <pre>num = float(input("Число: "))
+percent = float(input("Процент: "))
+result = num * percent / 100
+print(percent, "% от", num, "=", result)</pre>
+
+  <h3>7. Периметр и площадь круга</h3>
+  <pre>r = float(input("Радиус: "))
+pi = 3.14
+C = 2 * pi * r
+S = pi * r * r
+print("Длина окружности:", C)
+print("Площадь круга:", S)</pre>
+
+  <h3>8. Перевод часов в секунды</h3>
+  <pre>h = int(input("Часы: "))
+m = int(input("Минуты: "))
+s = int(input("Секунды: "))
+total = h * 3600 + m * 60 + s
+print("Всего секунд:", total)</pre>
+
+  <h3>9. Сложные проценты</h3>
+  <pre>P = float(input("Вклад: "))
+r = float(input("Ставка (%): "))
+n = int(input("Лет: "))
+S = P * (1 + r / 100) ** n
+print("Итоговая сумма:", S)</pre>
+
+  <h3>10. Теорема Пифагора</h3>
+  <pre>a = float(input("Катет a: "))
+b = float(input("Катет b: "))
+c = (a ** 2 + b ** 2) ** 0.5
+print("Гипотенуза:", c)</pre>
+
+  <h3>Бонус. Формула Герона</h3>
+  <pre>a = float(input("Сторона a: "))
+b = float(input("Сторона b: "))
+c = float(input("Сторона c: "))
+p = (a + b + c) / 2
+S = (p * (p - a) * (p - b) * (p - c)) ** 0.5
+print("Площадь треугольника:", S)</pre>
+
+</div>
+
+</body>
+</html>
