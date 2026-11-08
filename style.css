@@ -1,0 +1,17 @@
+:root{
+    --header: #a8d8ea;
+    --footer: #aa96da;
+    --butn: #fcbad3;
+    --after: #ffffd2;
+}
+body{
+    margin: 0;
+}
+header{
+    background-color: var(--header);
+    text-align: center;
+}
+
+footer{
+    background-color: var(--footer);
+}
