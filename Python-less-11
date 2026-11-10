@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Python: ветвления и логические операторы — для ученика</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 12.5pt;
+    line-height: 1.42;
+    color: #000;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page {
+    width: 190mm;
+    min-height: 270mm;
+    margin: 0 auto;
+    padding: 12mm 10mm;
+  }
+
+  h1 {
+    font-size: 19pt;
+    text-align: center;
+    margin: 0 0 3mm 0;
+    border-bottom: 2px solid #000;
+    padding-bottom: 2.5mm;
+  }
+
+  h2 {
+    font-size: 14pt;
+    margin: 5mm 0 2mm 0;
+    border-bottom: 1px solid #000;
+    padding-bottom: 1.2mm;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  h3 {
+    font-size: 12.5pt;
+    margin: 3.5mm 0 1mm 0;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+    margin: 0 0 4mm 0;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000;
+    padding: 2mm 4mm;
+    margin-bottom: 4mm;
+    font-size: 11pt;
+  }
+
+  .line {
+    border-bottom: 1px solid #000;
+    display: inline-block;
+    min-width: 45mm;
+    height: 4mm;
+  }
+
+  p { margin: 1.5mm 0; }
+
+  ul, ol { margin: 1.5mm 0 1.5mm 6mm; padding: 0; }
+  li { margin: 1mm 0; }
+
+  pre {
+    font-family: "Courier New", monospace;
+    font-size: 10.5pt;
+    line-height: 1.3;
+    background: #f4f4f4;
+    border: 1px solid #999;
+    border-radius: 1.5mm;
+    padding: 2mm 2.5mm;
+    margin: 2mm 0;
+    white-space: pre-wrap;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  code {
+    font-family: "Courier New", monospace;
+    font-size: 11pt;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 2mm 0;
+    font-size: 11pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #000;
+    padding: 1.2mm 4mm;
+    text-align: center;
+  }
+
+  th { background: #e8e8e8; }
+
+  .two-tables {
+    display: flex;
+    gap: 8mm;
+    flex-wrap: wrap;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .box {
+    border: 1.5px solid #000;
+    border-radius: 2mm;
+    padding: 2.5mm 3.5mm;
+    margin-bottom: 3.5mm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .box-title {
+    font-weight: bold;
+    font-size: 12.5pt;
+    margin-bottom: 1.5mm;
+  }
+
+  .task {
+    border: 1.5px solid #000;
+    border-radius: 2mm;
+    padding: 2.5mm 3.5mm;
+    margin-bottom: 3.5mm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .task .num {
+    font-weight: bold;
+    margin-bottom: 1.2mm;
+  }
+
+  .answer-lines { margin-top: 1.5mm; font-size: 11pt; }
+  .answer-lines div { border-bottom: 1px dotted #000; height: 5.5mm; }
+
+  .note {
+    font-size: 10.5pt;
+    font-style: italic;
+    border-left: 3px solid #000;
+    padding-left: 3mm;
+    margin: 2mm 0;
+  }
+
+  .warn {
+    border: 1.5px dashed #000;
+    border-radius: 1.5mm;
+    padding: 2mm 3mm;
+    margin: 2mm 0;
+    font-size: 11pt;
+  }
+
+  .page-break { page-break-after: always; break-after: page; }
+
+  @page { size: A4; margin: 10mm; }
+
+  @media print {
+    body { font-size: 12pt; }
+    .page { width: auto; min-height: auto; padding: 0; margin: 0; }
+    pre { background: #fff !important; border: 1px solid #000; }
+    th { background: #eee !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- СТРАНИЦА 1: ТЕОРИЯ                                           -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: ветвления и логические операторы</h1>
+  <p class="subtitle">Теория: and, or, not и составные условия</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+  </div>
+
+  <h2>1. Вспомним: if / else</h2>
+
+<pre>x = 10
+if x &gt; 5:
+    print("А")
+else:
+    print("Б")</pre>
+
+  <p><b>Вопрос:</b> что выведет программа? <span class="line" style="min-width:30mm;"></span></p>
+
+  <h2>2. Оператор and («И»)</h2>
+
+  <p>Условие истинно, только если <b>оба</b> условия истинны.</p>
+
+  <table>
+    <tr><th>A</th><th>B</th><th>A and B</th></tr>
+    <tr><td>True</td><td>True</td><td><b>True</b></td></tr>
+    <tr><td>True</td><td>False</td><td>False</td></tr>
+    <tr><td>False</td><td>True</td><td>False</td></tr>
+    <tr><td>False</td><td>False</td><td>False</td></tr>
+  </table>
+
+  <h3>Пример: кот идёт гулять</h3>
+  <p>Кот идёт гулять, если на улице <b>тепло</b> и <b>нет дождя</b>.</p>
+
+<pre>temp = int(input("Температура: "))
+rain = input("Дождь? (да/нет): ")
+
+if temp &gt; 15 and rain == "нет":
+    print("Кот идёт гулять!")
+else:
+    print("Кот остаётся дома.")</pre>
+
+  <p><b>Проверь сам:</b> что выведет при 20 и «нет»? А при 20 и «да»? А при 10 и «нет»?</p>
+
+  <h2>3. Оператор or («ИЛИ»)</h2>
+
+  <p>Условие истинно, если <b>хотя бы одно</b> условие истинно.</p>
+
+  <table>
+    <tr><th>A</th><th>B</th><th>A or B</th></tr>
+    <tr><td>True</td><td>True</td><td><b>True</b></td></tr>
+    <tr><td>True</td><td>False</td><td><b>True</b></td></tr>
+    <tr><td>False</td><td>True</td><td><b>True</b></td></tr>
+    <tr><td>False</td><td>False</td><td>False</td></tr>
+  </table>
+
+  <h3>Пример: пятница или суббота</h3>
+
+<pre>day = input("Какой день недели? ")
+
+if day == "пятница" or day == "суббота":
+    print("Ура, скоро выходные!")
+else:
+    print("Ещё учимся.")</pre>
+
+  <div class="warn">
+    <b>Типичная ошибка!</b> Писать <code>if day == "пятница" or "суббота":</code> — так <b>не работает</b>. Нужно повторить сравнение: <code>day == "пятница" or day == "суббота"</code>.
+  </div>
+
+  <h2>4. Оператор not («НЕ»)</h2>
+
+  <p>Меняет истину на ложь и наоборот.</p>
+
+  <table>
+    <tr><th>A</th><th>not A</th></tr>
+    <tr><td>True</td><td>False</td></tr>
+    <tr><td>False</td><td>True</td></tr>
+  </table>
+
+  <h3>Пример: свет выключен</h3>
+
+<pre>light = input("Свет включён? (да/нет): ")
+
+if not (light == "да"):
+    print("Темно, включи свет!")
+else:
+    print("Всё видно.")</pre>
+
+  <p>То же самое можно записать короче: <code>if light != "да":</code></p>
+
+  <h2>5. Составные условия и скобки</h2>
+
+  <p>Можно комбинировать <code>and</code>, <code>or</code>, <code>not</code> и скобки.</p>
+
+  <h3>Пример: подросток</h3>
+  <p>Возраст от 13 до 17 включительно.</p>
+
+<pre>age = int(input("Возраст: "))
+
+if age &gt;= 13 and age &lt;= 17:
+    print("Подросток")
+else:
+    print("Не подросток")</pre>
+
+  <h3>Пример: скидка в магазине</h3>
+  <p>Скидка даётся, если покупатель студент <b>или</b> у него есть карта лояльности, <b>и</b> сумма покупки больше 1000.</p>
+
+<pre>is_student = input("Студент? (да/нет): ")
+has_card = input("Есть карта? (да/нет): ")
+total = float(input("Сумма покупки: "))
+
+if (is_student == "да" or has_card == "да") and total &gt; 1000:
+    print("Скидка есть!")
+else:
+    print("Скидки нет.")</pre>
+
+  <div class="note">
+    <b>Порядок выполнения:</b> сначала <code>not</code>, потом <code>and</code>, потом <code>or</code>. Но лучше всегда ставить скобки — так понятнее и надёжнее.
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ============================================================ -->
+<!-- СТРАНИЦА 2: ПРАКТИКА                                         -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: ветвления и логические операторы</h1>
+  <p class="subtitle">Практика: составные условия и вложенное ветвление</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+    <span>Оценка: <span class="line" style="min-width:20mm;"></span></span>
+  </div>
+
+  <h2>Задача 1. Светофор</h2>
+  <p>Если горит <code>зелёный</code> — выведи «Можно идти», если <code>жёлтый</code> — «Приготовься», если <code>красный</code> — «Стой». Иначе — «Неизвестный сигнал».</p>
+  <p><i>Подсказка:</i> используй <code>if</code>, <code>elif</code>, <code>else</code>.</p>
+  <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+  <h2>Задача 2. Допуск к экзамену</h2>
+  <p>Ученик допущен к экзамену, если у него <b>нет</b> долгов <b>и</b> посещаемость больше 80%.</p>
+  <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+  <h2>Задача 3. Билет в кино</h2>
+  <p>Детский билет (дешевле) — если возраст меньше 12 <b>или</b> есть студенческий билет.</p>
+  <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+  <h2>Вложенное ветвление</h2>
+
+  <p>Внутри одного <code>if</code> может быть другой <code>if</code>. Это нужно, когда второе условие проверяется только после первого.</p>
+
+  <h3>Пример: оценка за экзамен</h3>
+
+<pre>score = int(input("Баллы (0–100): "))
+
+if score &gt;= 60:
+    if score &gt;= 90:
+        print("Отлично!")
+    else:
+        print("Сдал")
+else:
+    print("Не сдал")</pre>
+
+  <p><b>Как читать:</b> сначала проверяем, сдал ли (≥ 60). Если да — смотрим, отличник ли (≥ 90). Если нет — не сдал.</p>
+
+  <div class="warn">
+    <b>Важно:</b> отступы! Второй <code>if</code> должен быть сдвинут вправо — он находится <b>внутри</b> первого.
+  </div>
+
+  <h2>Задача 4. Вложенный светофор с пешеходом</h2>
+  <p>Если горит зелёный — смотрим, есть ли машины. Если машин нет — «Иди», если есть — «Подожди». Если не зелёный — «Стой».</p>
+  <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+  <h2>Задача 5. Логин и пароль</h2>
+  <p>Сначала проверяем логин. Если логин верный (<code>admin</code>) — проверяем пароль (<code>1234</code>). Если логин неверный — сразу «Неверный логин».</p>
+  <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ============================================================ -->
+<!-- СТРАНИЦА 3: ДОМАШНЕЕ ЗАДАНИЕ + ИТОГ                         -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: ветвления и логические операторы</h1>
+  <p class="subtitle">Домашнее задание и итог урока</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+  </div>
+
+  <h2>Вспомним главное</h2>
+
+  <div class="box">
+    <div class="box-title">and — «И»</div>
+    <p>Истинно, только если <b>оба</b> условия истинны.</p>
+    <pre>if temp &gt; 15 and rain == "нет":</pre>
+  </div>
+
+  <div class="box">
+    <div class="box-title">or — «ИЛИ»</div>
+    <p>Истинно, если <b>хотя бы одно</b> условие истинно.</p>
+    <pre>if day == "пятница" or day == "суббота":</pre>
+  </div>
+
+  <div class="box">
+    <div class="box-title">not — «НЕ»</div>
+    <p>Меняет истину на ложь и наоборот.</p>
+    <pre>if not (light == "да"):</pre>
+  </div>
+
+  <div class="box">
+    <div class="box-title">Скобки и порядок</div>
+    <p>Сначала <code>not</code>, потом <code>and</code>, потом <code>or</code>. Скобки задают нужный порядок.</p>
+    <pre>if (is_student == "да" or has_card == "да") and total &gt; 1000:</pre>
+  </div>
+
+  <div class="box">
+    <div class="box-title">Вложенное ветвление</div>
+    <p>Второй <code>if</code> внутри первого — когда второе условие имеет смысл только после первого.</p>
+    <pre>if login == "admin":
+    password = input("Пароль: ")
+    if password == "1234":
+        print("Добро пожаловать!")</pre>
+  </div>
+
+  <h2>Домашнее задание</h2>
+
+  <div class="task">
+    <div class="num">Задача 1. Вход в игру</div>
+    <p>Логин <code>player</code>, пароль <code>python</code>. Если логин верный, но пароль нет — «Неверный пароль». Если логин неверный — «Неверный логин». Если оба верны — «Добро пожаловать!».</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 2. Кафе</div>
+    <p>В кафе можно войти, если возраст ≥ 18 <b>или</b> есть разрешение от родителей. Иначе — нельзя.</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 3. Число</div>
+    <p>Введи число. Если оно чётное <b>и</b> больше 10 — «Чётное и большое». Иначе — «Другое».</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <h2>Вопросы для рефлексии</h2>
+  <ol>
+    <li>Чем <code>and</code> отличается от <code>or</code>?</li>
+    <li>Когда нужен <code>not</code>?</li>
+    <li>Зачем нужны скобки в составных условиях?</li>
+    <li>Когда лучше вложенный <code>if</code>, а когда <code>and</code>?</li>
+  </ol>
+
+</div>
+
+</body>
+</html>
