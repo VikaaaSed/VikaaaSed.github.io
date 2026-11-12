@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monomakh&family=Train+One&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{
+        font-family: "Monomakh", system-ui;
+    }
+    header {
+        background-color: #0199e2;
+        
+    }
+
+    nav{
+        background-color: darkcyan;
+        display: flex;
+        justify-content: center;
+    }
+    h1 {
+        color: white;
+        text-align: center;
+        font-size: 40px;
+        margin: 0px;
+    }
+    nav a{
+        margin: 10px 40px;
+        text-decoration: none;
+        color: aliceblue;
+        font-size: 30px ;
+    }
+    .container{
+        display: flex;
+    }
+    .menu{
+        background-color: blueviolet;
+        margin: 20px;               /*отступ внешний*/
+        border-radius: 20px;
+        padding: 20px;              /*отступ внутренний*/
+    }
+    .menu ul {
+        list-style: none;/*убрали точки*/
+        padding: 0;/*отступ внутренний*/
+    }
+
+    .menu li{
+        background-color: darkmagenta;
+        margin: 10px;
+        color: aliceblue;
+        padding: 10px;
+    }
+    img{
+        height: 500pxe;
+    }
+
+
+</style>
+
+<body>
+    <header>
+        <h1>Экскурсии по Москве</h1>
+    </header>
+    <nav>
+        <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Услуги</a>
+        <a href="#">Контакты</a>
+    </nav>
+
+    <div class="container">
+        <div class="menu">
+            <ul>
+                <li>Экскурсия на Поклонной горе</li>
+                <li>Экскурсия в Атом на ВДНХ</li>
+                <li>Экскурсия в Третьяковскую галерею</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h2>Экскурсии по Москве: Путешествие в сердце России</h2>
+            <p>Москва — это город, где история и современность сплетаются в
+                уникальную картину. Экскурсии по столице предлагают возможность
+                окунуться в многовековую историю России, познакомиться с культурным
+                наследием и насладиться красотой архитектуры.
+                Посетите Красную площадь — сердце Москвы и всей страны.
+                Полюбуйтесь величественным Кремлем и разноцветными куполами
+                Собора Василия Блаженного. Прогуляйтесь по старинным улицам
+                Китай-города, а затем отправляйтесь в парк «Зарядье», чтобы
+                насладиться видами</p>
+            <img src="https://kreml.ru/_next/image?url=https%3A%2F%2Fkreml.ru%2Fstorage%2Fmediafiles%2FRUC1Jq7xXUneuj9xrLitkRw15C2Hek61391JvLSM.webp&w=3840&q=95"
+                alt="Фото Кремля">
+            <p>
+                Любителям искусства придутся по душе экскурсии в Третьяковскую галерею или Государственный музей
+                изобразительных искусств имени Пушкина. Для тех, кто хочет увидеть современную Москву, рекомендуем
+                прогулку по Москва-Сити с захватывающими видами на мегаполис. Экскурсии по Москве — это возможность
+                открыть для себя новые грани этого удивительного города и вдохновиться его энергией.
+            </p>
+        </div>
+    </div>
+    <footer>
+        <p>©2026. Все права защищены</p>
+    </footer>
+</body>
+
+</html>
