@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Карточки-шпаргалки: Экскурсии по Москве</title>
+<style>
+  @page { size: A4; margin: 10mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 1.3;
+    color: #000;
+    background: #fff;
+    margin: 0;
+  }
+  h1 {
+    font-size: 16pt;
+    text-align: center;
+    margin: 0 0 3mm;
+    border-bottom: 2px solid #000;
+    padding-bottom: 2mm;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+  }
+  .card {
+    border: 1.5px solid #000;
+    padding: 3mm;
+    break-inside: avoid;
+  }
+  .card h2 {
+    font-size: 11pt;
+    margin: 0 0 2mm;
+    border-bottom: 1px solid #000;
+    padding-bottom: 1mm;
+  }
+  .card h3 {
+    font-size: 10pt;
+    margin: 2mm 0 1mm;
+  }
+  code {
+    font-family: "Courier New", monospace;
+    font-size: 9pt;
+    background: #eee;
+    padding: 0 1mm;
+  }
+  pre {
+    font-family: "Courier New", monospace;
+    font-size: 8.5pt;
+    border: 1px dashed #000;
+    padding: 2mm;
+    margin: 1.5mm 0;
+    white-space: pre-wrap;
+    line-height: 1.25;
+    background: #fafafa;
+  }
+  ul { margin: 1mm 0 1mm 4mm; padding: 0; }
+  li { margin-bottom: 0.5mm; }
+  .tag { font-weight: bold; }
+  .warn {
+    border-top: 1px dashed #000;
+    margin-top: 2mm;
+    padding-top: 1mm;
+    font-size: 9pt;
+  }
+  .warn::before { content: "⚠ "; font-weight: bold; }
+  @media print {
+    .card { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Карточки-шпаргалки: «Экскурсии по Москве»</h1>
+
+<div class="grid">
+
+  <!-- КАРТОЧКА 1 -->
+  <div class="card">
+    <h2>1. Каркас страницы</h2>
+    <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt; ... &lt;/head&gt;
+  &lt;body&gt; ... &lt;/body&gt;
+&lt;/html&gt;</pre>
+    <ul>
+      <li><code>&lt;!DOCTYPE html&gt;</code> — это HTML5</li>
+      <li><code>&lt;head&gt;</code> — служебная часть (не видна)</li>
+      <li><code>&lt;body&gt;</code> — всё, что видит пользователь</li>
+    </ul>
+    <div class="warn">Язык стоит <code>lang="en"</code>, а страница на русском. Правильнее <code>lang="ru"</code>.</div>
+  </div>
+
+  <!-- КАРТОЧКА 2 -->
+  <div class="card">
+    <h2>2. Подключение шрифтов</h2>
+    <pre>&lt;link rel="preconnect" href="..."&gt;
+&lt;link href="...family=Monomakh..." 
+      rel="stylesheet"&gt;</pre>
+    <pre>body {
+  font-family: "Monomakh", system-ui;
+}</pre>
+    <ul>
+      <li><code>&lt;link&gt;</code> в <code>&lt;head&gt;</code> — подключает шрифт из Google Fonts</li>
+      <li><code>font-family</code> — применяет шрифт к тексту</li>
+      <li><code>system-ui</code> — запасной шрифт, если основной не загрузится</li>
+    </ul>
+    <div class="warn">Без интернета шрифт Monomakh не загрузится — сработает запасной.</div>
+  </div>
+
+  <!-- КАРТОЧКА 3 -->
+  <div class="card">
+    <h2>3. Шапка сайта <code>&lt;header&gt;</code></h2>
+    <pre>header {
+  background-color: #0199e2;
+}
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  margin: 0px;
+}</pre>
+    <ul>
+      <li><code>#0199e2</code> — HEX-код цвета (синий)</li>
+      <li><code>text-align: center</code> — по центру</li>
+      <li><code>margin: 0</code> — убирает внешний отступ</li>
+    </ul>
+    <div class="warn">Без <code>margin: 0</code> вокруг заголовка останутся белые поля браузера.</div>
+  </div>
+
+  <!-- КАРТОЧКА 4 -->
+  <div class="card">
+    <h2>4. Меню <code>&lt;nav&gt;</code> + flex</h2>
+    <pre>nav {
+  background-color: darkcyan;
+  display: flex;
+  justify-content: center;
+}</pre>
+    <ul>
+      <li><code>display: flex</code> — ставит элементы <b>в ряд</b></li>
+      <li><code>justify-content: center</code> — выравнивает по центру</li>
+      <li><code>&lt;nav&gt;</code> — блок навигации</li>
+    </ul>
+    <div class="warn">Flex — это «резинка»: без него ссылки шли бы друг под другом.</div>
+  </div>
+
+  <!-- КАРТОЧКА 5 -->
+  <div class="card">
+    <h2>5. Ссылки в меню</h2>
+    <pre>nav a {
+  margin: 10px 40px;
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 30px;
+}</pre>
+    <ul>
+      <li><code>nav a</code> — «ссылки <b>внутри</b> nav»</li>
+      <li><code>text-decoration: none</code> — убирает подчёркивание</li>
+      <li><code>margin: 10px 40px</code> — 10px сверху/снизу, 40px слева/справа</li>
+    </ul>
+    <div class="warn">Запись <code>margin: 10px 40px</code> — это сокращение для 4 отступов.</div>
+  </div>
+
+  <!-- КАРТОЧКА 6 -->
+  <div class="card">
+    <h2>6. Контейнер <code>.container</code></h2>
+    <pre>&lt;div class="container"&gt;
+  &lt;div class="menu"&gt; ... &lt;/div&gt;
+  &lt;div class="content"&gt; ... &lt;/div&gt;
+&lt;/div&gt;</pre>
+    <pre>.container {
+  display: flex;
+}</pre>
+    <ul>
+      <li>Класс — оформляет <b>любой</b> тег с этим именем</li>
+      <li><code>display: flex</code> ставит меню и контент <b>в ряд</b></li>
+    </ul>
+    <div class="warn">В CSS класс пишется с точкой: <code>.container</code>, в HTML — без: <code>class="container"</code>.</div>
+  </div>
+
+  <!-- КАРТОЧКА 7 -->
+  <div class="card">
+    <h2>7. Блок меню <code>.menu</code></h2>
+    <pre>.menu {
+  background-color: blueviolet;
+  margin: 20px;       /* внешний */
+  padding: 20px;      /* внутренний */
+  border-radius: 20px;
+}</pre>
+    <ul>
+      <li><code>margin</code> — отступ <b>снаружи</b></li>
+      <li><code>padding</code> — отступ <b>внутри</b></li>
+      <li><code>border-radius</code> — скругляет углы</li>
+    </ul>
+    <div class="warn">Padding — «поролон» внутри коробки, margin — расстояние между коробками.</div>
+  </div>
+
+  <!-- КАРТОЧКА 8 -->
+  <div class="card">
+    <h2>8. Список без точек</h2>
+    <pre>.menu ul {
+  list-style: none;
+  padding: 0;
+}
+.menu li {
+  background-color: darkmagenta;
+  margin: 10px;
+  padding: 10px;
+}</pre>
+    <ul>
+      <li><code>list-style: none</code> — убирает маркеры</li>
+      <li><code>padding: 0</code> — убирает сдвиг списка</li>
+      <li><code>.menu li</code> — пункты <b>внутри</b> меню</li>
+    </ul>
+    <div class="warn">Без <code>padding: 0</code> список останется сдвинутым вправо.</div>
+  </div>
+
+  <!-- КАРТОЧКА 9 -->
+  <div class="card">
+    <h2>9. Картинка <code>&lt;img&gt;</code></h2>
+    <pre>&lt;img src="https://..." alt="Фото Кремля"&gt;</pre>
+    <pre>img {
+  height: 500pxe; /* ОШИБКА! */
+}</pre>
+    <ul>
+      <li><code>src</code> — путь к картинке</li>
+      <li><code>alt</code> — описание, если картинка не загрузится</li>
+      <li>Правильно: <code>height: 500px;</code></li>
+    </ul>
+    <div class="warn">Здесь опечатка: <code>500pxe</code> вместо <code>500px</code> — браузер не поймёт единицу.</div>
+  </div>
+
+  <!-- КАРТОЧКА 10 -->
+  <div class="card">
+    <h2>10. Текстовый блок <code>.content</code></h2>
+    <pre>&lt;div class="content"&gt;
+  &lt;h2&gt;Экскурсии по Москве...&lt;/h2&gt;
+  &lt;p&gt;Москва — это город...&lt;/p&gt;
+  &lt;img ...&gt;
+  &lt;p&gt;Любителям искусства...&lt;/p&gt;
+&lt;/div&gt;</pre>
+    <ul>
+      <li><code>&lt;h2&gt;</code> — подзаголовок</li>
+      <li><code>&lt;p&gt;</code> — абзац</li>
+      <li>Текст + картинка + текст внутри одного блока</li>
+    </ul>
+    <div class="warn">У <code>.content</code> нет стилей — он занимает место по содержимому.</div>
+  </div>
+
+  <!-- КАРТОЧКА 11 -->
+  <div class="card">
+    <h2>11. Подвал <code>&lt;footer&gt;</code></h2>
+    <pre>&lt;footer&gt;
+  &lt;p&gt;©2026. Все права защищены&lt;/p&gt;
+&lt;/footer&gt;</pre>
+    <ul>
+      <li><code>&lt;footer&gt;</code> — нижний блок страницы</li>
+      <li><code>©</code> — символ копирайта</li>
+    </ul>
+    <div class="warn">В коде у <code>footer</code> нет стилей — он будет серым текстом на белом фоне.</div>
+  </div>
+
+  <!-- КАРТОЧКА 12 -->
+  <div class="card">
+    <h2>12. Схема страницы</h2>
+    <pre>&lt;body&gt;
+  &lt;header&gt;   ← шапка
+  &lt;nav&gt;      ← меню
+  &lt;div class="container"&gt;
+    &lt;div class="menu"&gt;    ← слева
+    &lt;div class="content"&gt; ← справа
+  &lt;/div&gt;
+  &lt;footer&gt;   ← подвал
+&lt;/body&gt;</pre>
+    <ul>
+      <li>Сверху вниз: шапка → меню → контент → подвал</li>
+      <li><code>flex</code> ставит menu и content в ряд</li>
+    </ul>
+    <div class="warn">Так выглядит типовая структура сайта — запомни её.</div>
+  </div>
+
+</div>
+
+</body>
+</html>
