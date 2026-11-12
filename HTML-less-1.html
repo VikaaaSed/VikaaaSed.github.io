@@ -1,70 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Экскурсии по Москве</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Monomakh&family=Train+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shafarik&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2a7be4;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 24px;
+            font-family: "Shafarik", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        /*nav a:hover {
+            text-decoration: underline;
+        }*/
+
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+
+        .menu {
+            width: 200px;
+            background-color: #e0e0e0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+            background-color: #c5c5c5;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: black;
+            /*это выбор цвета*/
+        }
+
+        /* .menu a:hover {
+            text-decoration: underline;
+        }*/
+
+        .content {
+            /*flex-grow: 1;*/
+            padding: 20px;
+            /*margin-left: 20px;*/
+            background-color: white;
+            box-shadow: 0 0 21px 3px rgba(131, 201, 255, 0.29);
+            border-radius: 5px;
+        }
+
+        .content h1 {
+            color: #2a7be4;
+            font-family: "Shafarik", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .content img {
+            width: 800px;
+            height: 400px;
+            margin: 20px 0;
+            /*background-color: #ccc;
+            display: block;*/
+        }
+
+        .content p {
+            font-size: 25px;
+            
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+            /*width: 100%;*/
+        }
+        .button{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 </head>
-<style>
-    body{
-        font-family: "Monomakh", system-ui;
-    }
-    header {
-        background-color: #0199e2;
-        
-    }
-
-    nav{
-        background-color: darkcyan;
-        display: flex;
-        justify-content: center;
-    }
-    h1 {
-        color: white;
-        text-align: center;
-        font-size: 40px;
-        margin: 0px;
-    }
-    nav a{
-        margin: 10px 40px;
-        text-decoration: none;
-        color: aliceblue;
-        font-size: 30px ;
-    }
-    .container{
-        display: flex;
-    }
-    .menu{
-        background-color: blueviolet;
-        margin: 20px;               /*отступ внешний*/
-        border-radius: 20px;
-        padding: 20px;              /*отступ внутренний*/
-    }
-    .menu ul {
-        list-style: none;/*убрали точки*/
-        padding: 0;/*отступ внутренний*/
-    }
-
-    .menu li{
-        background-color: darkmagenta;
-        margin: 10px;
-        color: aliceblue;
-        padding: 10px;
-    }
-    img{
-        height: 500pxe;
-    }
-
-
-</style>
 
 <body>
     <header>
-        <h1>Экскурсии по Москве</h1>
+        Экскурсии по Москве
     </header>
     <nav>
         <a href="#">Главная</a>
@@ -72,38 +132,38 @@
         <a href="#">Услуги</a>
         <a href="#">Контакты</a>
     </nav>
-
     <div class="container">
         <div class="menu">
             <ul>
-                <li>Экскурсия на Поклонной горе</li>
-                <li>Экскурсия в Атом на ВДНХ</li>
-                <li>Экскурсия в Третьяковскую галерею</li>
+                <li><a href="#">Экскурсия по Красной площади</a></li>
+                <li><a href="#">Экскурсия на ВДНХ</a></li>
+                <li><a href="#">Экскурсия в парк "Зарядье"</a></li>
+                <li><a href="#">Экскурсия в Третьяковскую галерею</a></li>
             </ul>
         </div>
         <div class="content">
-            <h2>Экскурсии по Москве: Путешествие в сердце России</h2>
-            <p>Москва — это город, где история и современность сплетаются в
-                уникальную картину. Экскурсии по столице предлагают возможность
-                окунуться в многовековую историю России, познакомиться с культурным
-                наследием и насладиться красотой архитектуры.
-                Посетите Красную площадь — сердце Москвы и всей страны.
-                Полюбуйтесь величественным Кремлем и разноцветными куполами
-                Собора Василия Блаженного. Прогуляйтесь по старинным улицам
-                Китай-города, а затем отправляйтесь в парк «Зарядье», чтобы
-                насладиться видами</p>
-            <img src="https://kreml.ru/_next/image?url=https%3A%2F%2Fkreml.ru%2Fstorage%2Fmediafiles%2FRUC1Jq7xXUneuj9xrLitkRw15C2Hek61391JvLSM.webp&w=3840&q=95"
-                alt="Фото Кремля">
-            <p>
-                Любителям искусства придутся по душе экскурсии в Третьяковскую галерею или Государственный музей
+            <h1>Экскурсии по Москве: Путешествие в сердце России</h1>
+            <p>Москва — это город, где история и современность сплетаются в уникальную картину. Экскурсии по столице
+                предлагают возможность окунуться в многовековую историю России, познакомиться с культурным наследием и
+                насладиться красотой архитектуры.</p>
+            <p>Посетите Красную площадь — сердце Москвы и всей страны. Полюбуйтесь величественным Кремлем и
+                разноцветными куполами Собора Василия Блаженного. Прогуляйтесь по старинным улицам Китай-города, а затем
+                отправляйтесь в парк «Зарядье», чтобы насладиться видами на Москву-реку.</p>
+            <a href="https://vg.mskobr.ru/uchashimsya/olimpiady-konkursy-konferencii"><img src="" alt="Placeholder image"></a>
+            <p>Любителям искусства придутся по душе экскурсии в Третьяковскую галерею или Государственный музей
                 изобразительных искусств имени Пушкина. Для тех, кто хочет увидеть современную Москву, рекомендуем
                 прогулку по Москва-Сити с захватывающими видами на мегаполис. Экскурсии по Москве — это возможность
-                открыть для себя новые грани этого удивительного города и вдохновиться его энергией.
-            </p>
+                открыть для себя новые грани этого удивительного города и вдохновиться его энергией.</p>
         </div>
+        
+    </div>
+    <div class="button">
+    <button>
+            Зарегистрироваться
+    </button>
     </div>
     <footer>
-        <p>©2026. Все права защищены</p>
+        © 2024 Все права защищены.
     </footer>
 </body>
 
