@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Python: ветвления и логические операторы — задания для ученика</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 12.5pt;
+    line-height: 1.42;
+    color: #000;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page {
+    width: 190mm;
+    min-height: 270mm;
+    margin: 0 auto;
+    padding: 12mm 10mm;
+  }
+
+  h1 {
+    font-size: 19pt;
+    text-align: center;
+    margin: 0 0 3mm 0;
+    border-bottom: 2px solid #000;
+    padding-bottom: 2.5mm;
+  }
+
+  h2 {
+    font-size: 14pt;
+    margin: 5mm 0 2.5mm 0;
+    border-bottom: 1px solid #000;
+    padding-bottom: 1.2mm;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+    margin: 0 0 4mm 0;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000;
+    padding: 2mm 4mm;
+    margin-bottom: 4mm;
+    font-size: 11pt;
+  }
+
+  .line {
+    border-bottom: 1px solid #000;
+    display: inline-block;
+    min-width: 45mm;
+    height: 4mm;
+  }
+
+  p { margin: 1.5mm 0; }
+
+  ul, ol { margin: 1.5mm 0 1.5mm 6mm; padding: 0; }
+  li { margin: 1mm 0; }
+
+  pre {
+    font-family: "Courier New", monospace;
+    font-size: 10.5pt;
+    line-height: 1.3;
+    background: #f4f4f4;
+    border: 1px solid #999;
+    border-radius: 1.5mm;
+    padding: 2mm 2.5mm;
+    margin: 2mm 0;
+    white-space: pre-wrap;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  code {
+    font-family: "Courier New", monospace;
+    font-size: 11pt;
+  }
+
+  .task {
+    border: 1.5px solid #000;
+    border-radius: 2mm;
+    padding: 2.5mm 3.5mm;
+    margin-bottom: 3.5mm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .task .num {
+    font-weight: bold;
+    margin-bottom: 1.2mm;
+  }
+
+  .answer-lines { margin-top: 1.5mm; font-size: 11pt; }
+  .answer-lines div { border-bottom: 1px dotted #000; height: 5.5mm; }
+
+  .note {
+    font-size: 10.5pt;
+    font-style: italic;
+    border-left: 3px solid #000;
+    padding-left: 3mm;
+    margin: 2mm 0;
+  }
+
+  .warn {
+    border: 1.5px dashed #000;
+    border-radius: 1.5mm;
+    padding: 2mm 3mm;
+    margin: 2mm 0;
+    font-size: 11pt;
+  }
+
+  .page-break { page-break-after: always; break-after: page; }
+
+  @page { size: A4; margin: 10mm; }
+
+  @media print {
+    body { font-size: 12pt; }
+    .page { width: auto; min-height: auto; padding: 0; margin: 0; }
+    pre { background: #fff !important; border: 1px solid #000; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- СТРАНИЦА 1: ЧАСТЬ 1 — ЧТО ВЫВЕДЕТ ПРОГРАММА                 -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: ветвления и логические операторы</h1>
+  <p class="subtitle">Часть 1. Что выведет программа?</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+  </div>
+
+  <p><b>Инструкция:</b> прочитай код и запиши, что выведет программа. Будь внимателен — среди задач есть ловушки!</p>
+
+  <div class="task">
+    <div class="num">Задание 1.1. Светофор</div>
+<pre>color = "красный"
+if color == "зелёный":
+    print("Иди")
+else:
+    print("Стой")</pre>
+    <p>Вывод: <span class="line" style="min-width:100mm;"></span></p>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 1.2. Кот и температура</div>
+<pre>temp = 20
+rain = "нет"
+if temp &gt; 15 and rain == "нет":
+    print("Кот гуляет")
+else:
+    print("Кот дома")</pre>
+    <p>Вывод: <span class="line" style="min-width:100mm;"></span></p>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 1.3. Пятница или суббота</div>
+<pre>day = "среда"
+if day == "пятница" or day == "суббота":
+    print("Выходные близко")
+else:
+    print("Ещё учимся")</pre>
+    <p>Вывод: <span class="line" style="min-width:100mm;"></span></p>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 1.4. Свет выключен</div>
+<pre>light = "да"
+if not (light == "да"):
+    print("Темно")
+else:
+    print("Светло")</pre>
+    <p>Вывод: <span class="line" style="min-width:100mm;"></span></p>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 1.5. Возраст и допуск</div>
+<pre>age = 14
+if age &gt;= 13 and age &lt;= 17:
+    print("Подросток")
+else:
+    print("Не подросток")</pre>
+    <p>Вывод: <span class="line" style="min-width:100mm;"></span></p>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 1.6. Скидка со скобками</div>
+<pre>student = "нет"
+card = "да"
+total = 1200
+if (student == "да" or card == "да") and total &gt; 1000:
+    print("Скидка есть")
+else:
+    print("Скидки нет")</pre>
+    <p>Вывод: <span class="line" style="min-width:100mm;"></span></p>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ============================================================ -->
+<!-- СТРАНИЦА 2: ПРОДОЛЖЕНИЕ ЧАСТИ 1                              -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: ветвления и логические операторы</h1>
+  <p class="subtitle">Часть 1. Что выведет программа? (продолжение)</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 1.7. Коварное условие</div>
+<pre>rain = "нет"
+if rain == "нет" or "да":
+    print("Зонт не нужен")
+else:
+    print("Бери зонт")</pre>
+    <p>Вывод: <span class="line" style="min-width:100mm;"></span></p>
+    <p style="font-size:10.5pt; font-style:italic;">Подсказка: подумай, что значит <code>"да"</code> в условии — это строка, а не сравнение.</p>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 1.8. Вложенный пароль</div>
+<pre>login = "admin"
+if login == "admin":
+    password = "1234"
+    if password == "1234":
+        print("Добро пожаловать")
+    else:
+        print("Неверный пароль")
+else:
+    print("Неверный логин")</pre>
+    <p>Вывод: <span class="line" style="min-width:100mm;"></span></p>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 1.9. Число и not</div>
+<pre>num = -5
+if not (num &gt; 0):
+    print("Не положительное")
+else:
+    print("Положительное")</pre>
+    <p>Вывод: <span class="line" style="min-width:100mm;"></span></p>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 1.10. Три условия</div>
+<pre>winner = "нет"
+grades = "да"
+bad = "нет"
+if winner == "да" or (grades == "да" and bad == "нет"):
+    print("Допущен")
+else:
+    print("Не допущен")</pre>
+    <p>Вывод: <span class="line" style="min-width:100mm;"></span></p>
+  </div>
+
+  <div class="warn">
+    <b>Обсудим вместе:</b> в задании 1.7 условие всегда истинно. Как ты думаешь, почему? Как исправить код, чтобы он работал правильно?
+    <div class="answer-lines"><div></div><div></div><div></div></div>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ============================================================ -->
+<!-- СТРАНИЦА 3: ЧАСТЬ 2 — РЕШИ САМ                              -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: ветвления и логические операторы</h1>
+  <p class="subtitle">Часть 2. Реши сам</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+    <span>Оценка: <span class="line" style="min-width:20mm;"></span></span>
+  </div>
+
+  <p><b>Инструкция:</b> напиши программу по условию. Используй <code>input()</code>, <code>int()</code>, <code>if</code>, <code>elif</code>, <code>else</code>, <code>and</code>, <code>or</code>, <code>not</code>.</p>
+
+  <div class="task">
+    <div class="num">Задание 2.1. Стражник</div>
+    <p>Пароль <code>дракон</code> — выведи <code>Проходи!</code>, иначе — <code>Стоп!</code>.</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 2.2. Чётное или нечётное</div>
+    <p>Введи число. Выведи <code>Чётное</code> или <code>Нечётное</code>.</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 2.3. Допуск к экзамену</div>
+    <p>Ученик допущен, если у него <b>нет долгов</b> и <b>посещаемость больше 80%</b>. Иначе — <code>Не допущен</code>.</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 2.4. Билет в кино</div>
+    <p>Детский билет — если возраст <b>меньше 12</b> или есть <b>студенческий</b>. Иначе — <code>Взрослый билет</code>.</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ============================================================ -->
+<!-- СТРАНИЦА 4: ПРОДОЛЖЕНИЕ ЧАСТИ 2                              -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: ветвления и логические операторы</h1>
+  <p class="subtitle">Часть 2. Реши сам (продолжение)</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+    <span>Оценка: <span class="line" style="min-width:20mm;"></span></span>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 2.5. Логин и пароль (вложенное ветвление)</div>
+    <p>Логин <code>admin</code>. Если логин верный — спроси пароль <code>1234</code>. Если пароль верный — <code>Добро пожаловать!</code>, иначе — <code>Неверный пароль</code>. Если логин неверный — <code>Неверный логин</code>.</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 2.6. Скидка</div>
+    <p>Скидка даётся, если покупатель <b>студент или пенсионер</b>, и при этом <b>сумма покупки больше 500</b>. Используй скобки!</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 2.7. Погода для кота</div>
+    <p>Кот гуляет, если <b>нет дождя</b> и <b>температура выше 10</b>. Если температура выше 10, но идёт дождь — <code>Кот дома, но можно в сапогах</code>. Иначе — <code>Кот дома</code>.</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задание 2.8. Светофор для велосипедиста</div>
+    <p>Едем, если <b>(горит зелёный и нет машин)</b> или <b>горит зелёная стрелка</b>. Иначе — <code>Стой!</code>.</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="note">
+    <b>Не забудь:</b> строки в <code>input()</code> — это текст. Чтобы сравнивать числа, используй <code>int()</code> или <code>float()</code>. Не забывай про отступы и скобки в составных условиях.
+  </div>
+
+</div>
+
+</body>
+</html>
