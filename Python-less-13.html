@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Python: elif и while — макет для печати (ученик)</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 12.5pt;
+    line-height: 1.42;
+    color: #000;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page {
+    width: 190mm;
+    min-height: 270mm;
+    margin: 0 auto;
+    padding: 12mm 10mm;
+  }
+
+  h1 {
+    font-size: 19pt;
+    text-align: center;
+    margin: 0 0 3mm 0;
+    border-bottom: 2px solid #000;
+    padding-bottom: 2.5mm;
+  }
+
+  h2 {
+    font-size: 14pt;
+    margin: 5mm 0 2.5mm 0;
+    border-bottom: 1px solid #000;
+    padding-bottom: 1.2mm;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  h3 {
+    font-size: 12.5pt;
+    margin: 3.5mm 0 1mm 0;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+    margin: 0 0 4mm 0;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000;
+    padding: 2mm 4mm;
+    margin-bottom: 4mm;
+    font-size: 11pt;
+  }
+
+  .line {
+    border-bottom: 1px solid #000;
+    display: inline-block;
+    min-width: 45mm;
+    height: 4mm;
+  }
+
+  p { margin: 1.5mm 0; }
+
+  ul, ol { margin: 1.5mm 0 1.5mm 6mm; padding: 0; }
+  li { margin: 1mm 0; }
+
+  pre {
+    font-family: "Courier New", monospace;
+    font-size: 10.5pt;
+    line-height: 1.3;
+    background: #f4f4f4;
+    border: 1px solid #999;
+    border-radius: 1.5mm;
+    padding: 2mm 2.5mm;
+    margin: 2mm 0;
+    white-space: pre-wrap;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  code {
+    font-family: "Courier New", monospace;
+    font-size: 11pt;
+  }
+
+  .task {
+    border: 1.5px solid #000;
+    border-radius: 2mm;
+    padding: 2.5mm 3.5mm;
+    margin-bottom: 3.5mm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .task .num {
+    font-weight: bold;
+    margin-bottom: 1.2mm;
+  }
+
+  .answer-lines { margin-top: 1.5mm; font-size: 11pt; }
+  .answer-lines div { border-bottom: 1px dotted #000; height: 5.5mm; }
+
+  .note {
+    font-size: 10.5pt;
+    font-style: italic;
+    border-left: 3px solid #000;
+    padding-left: 3mm;
+    margin: 2mm 0;
+  }
+
+  .warn {
+    border: 1.5px dashed #000;
+    border-radius: 1.5mm;
+    padding: 2mm 3mm;
+    margin: 2mm 0;
+    font-size: 11pt;
+  }
+
+  .page-break { page-break-after: always; break-after: page; }
+
+  @page { size: A4; margin: 10mm; }
+
+  @media print {
+    body { font-size: 12pt; }
+    .page { width: auto; min-height: auto; padding: 0; margin: 0; }
+    pre { background: #fff !important; border: 1px solid #000; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- СТРАНИЦА 1: ELIF — ПРАКТИКА                                  -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: повторяем elif и знакомимся с while</h1>
+  <p class="subtitle">Часть 1. Повторение: elif</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+  </div>
+
+  <div class="warn">
+    <b>Вспомним:</b> <code>elif</code> — это «иначе если». Проверяется, только если все предыдущие условия ложны. В цепочке <code>if/elif/else</code> срабатывает <b>только одна</b> ветка.
+  </div>
+
+  <p><b>Вопрос:</b> что выведет этот код?</p>
+<pre>x = 7
+if x &gt; 10:
+    print("А")
+elif x &gt; 5:
+    print("Б")
+else:
+    print("В")</pre>
+  <p>Ответ: <span class="line" style="min-width:80mm;"></span></p>
+
+  <h2>Задачи</h2>
+
+  <div class="task">
+    <div class="num">Задача 1. Светофор</div>
+    <p>Введи цвет: <code>зелёный</code> → «Иди», <code>жёлтый</code> → «Приготовься», <code>красный</code> → «Стой», иначе → «Неизвестный сигнал».</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 2. Оценка за экзамен</div>
+    <p>Баллы 0–100: 90+ → «Отлично», 75–89 → «Хорошо», 60–74 → «Сдал», меньше 60 → «Не сдал».</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 3. Время суток</div>
+    <p>Введи час (0–23): 6–11 → «Утро», 12–17 → «День», 18–21 → «Вечер», иначе → «Ночь».</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ============================================================ -->
+<!-- СТРАНИЦА 2: ELIF — ПРОДОЛЖЕНИЕ                               -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: повторяем elif и знакомимся с while</h1>
+  <p class="subtitle">Часть 1. Повторение: elif (продолжение)</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 4. Класс животного</div>
+    <p>Введи животное: <code>кот</code>, <code>собака</code> → «Домашнее»; <code>волк</code>, <code>лиса</code> → «Дикое»; иначе → «Не знаю».</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 5. Калькулятор оценок</div>
+    <p>Введи оценку 1–5: 5 → «Отлично», 4 → «Хорошо», 3 → «Удовлетворительно», 1–2 → «Плохо», иначе → «Нет такой оценки».</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="note">
+    <b>Подсказка:</b> в задачах 2 и 3 условия удобно писать по убыванию или через двойное сравнение <code>6 &lt;= hour &lt;= 11</code>. Помни: до следующей ветки <code>elif</code> дойдут только те, кто не прошёл предыдущие.
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ============================================================ -->
+<!-- СТРАНИЦА 3: WHILE — ТЕОРИЯ                                   -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: повторяем elif и знакомимся с while</h1>
+  <p class="subtitle">Часть 2. Знакомство с циклом while</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+  </div>
+
+  <h2>Что такое цикл?</h2>
+  <p><b>Цикл</b> — это повторение одного и того же действия несколько раз.</p>
+  <p><b>Аналогия:</b> «Пока не выучил стих — повторяй». «Пока есть грязная посуда — мой». «Пока не дошёл до школы — иди».</p>
+
+  <h2>Синтаксис</h2>
+<pre>while условие:
+    действие</pre>
+
+  <p><b>Как работает:</b></p>
+  <ol>
+    <li>Проверяется условие.</li>
+    <li>Если истинно — выполняется тело цикла.</li>
+    <li>Снова проверяется условие.</li>
+    <li>Если ложно — цикл завершается.</li>
+  </ol>
+
+  <h3>Пример 1. Счёт до 5</h3>
+<pre>i = 1
+while i &lt;= 5:
+    print(i)
+    i = i + 1</pre>
+  <p><b>Вывод:</b></p>
+<pre>1
+2
+3
+4
+5</pre>
+  <p><b>Разбор по шагам:</b></p>
+  <ul>
+    <li><code>i = 1</code> → условие <code>1 &lt;= 5</code> истинно → печатаем 1 → <code>i = 2</code></li>
+    <li><code>2 &lt;= 5</code> истинно → печатаем 2 → <code>i = 3</code></li>
+    <li>… и так до <code>i = 5</code></li>
+    <li><code>6 &lt;= 5</code> ложно → цикл закончен</li>
+  </ul>
+
+  <h3>Пример 2. Обратный отсчёт</h3>
+<pre>i = 5
+while i &gt;= 1:
+    print(i)
+    i = i - 1
+print("Пуск!")</pre>
+  <p><b>Вывод:</b></p>
+<pre>5
+4
+3
+2
+1
+Пуск!</pre>
+
+  <h3>Пример 3. «Пока не введён правильный пароль»</h3>
+<pre>password = ""
+while password != "дракон":
+    password = input("Пароль: ")
+print("Проходи!")</pre>
+  <p>Программа будет спрашивать пароль, пока не введут <code>дракон</code>.</p>
+
+  <div class="warn">
+    <b>Главная ошибка новичка — бесконечный цикл!</b><br>
+    Если забыть изменить переменную внутри цикла, он будет повторяться вечно:
+<pre>i = 1
+while i &lt;= 5:
+    print(i)
+    # забыли i = i + 1</pre>
+    <b>Всегда меняй переменную внутри цикла!</b>
+  </div>
+
+  <h2>Чем while отличается от if?</h2>
+  <ul>
+    <li><code>if</code> выполняется <b>один раз</b>, если условие истинно.</li>
+    <li><code>while</code> выполняется <b>снова и снова</b>, пока условие истинно.</li>
+  </ul>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ============================================================ -->
+<!-- СТРАНИЦА 4: WHILE — ПЕРВЫЕ ЗАДАЧИ                            -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <h1>Python: повторяем elif и знакомимся с while</h1>
+  <p class="subtitle">Часть 2. Первые задачи на while</p>
+
+  <div class="meta">
+    <span>Имя: <span class="line"></span></span>
+    <span>Дата: <span class="line" style="min-width:35mm;"></span></span>
+    <span>Оценка: <span class="line" style="min-width:20mm;"></span></span>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 6. Счёт от 1 до 10</div>
+    <p>Выведи числа от 1 до 10 с помощью <code>while</code>.</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 7. Сумма чисел от 1 до 5</div>
+    <p>Найди сумму 1 + 2 + 3 + 4 + 5 с помощью <code>while</code>. Выведи результат.</p>
+    <p style="font-size:11pt; font-style:italic;">Подсказка: заведи переменную <code>total = 0</code> и прибавляй к ней <code>i</code> на каждом шаге.</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="task">
+    <div class="num">Задача 8. Угадай число</div>
+    <p>Программа загадала число 7. Спрашивай число, пока не угадают. Когда угадали — выведи «Угадал!».</p>
+    <div class="answer-lines"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <div class="note">
+    <b>Проверь себя:</b> во всех задачах внутри цикла должна меняться переменная, иначе цикл будет бесконечным. После решения подумай: сколько раз выполнится тело цикла в задаче 6? А в задаче 7?
+  </div>
+
+  <h2>Вопросы для рефлексии</h2>
+  <ol>
+    <li>Чем <code>elif</code> отличается от <code>else</code>?</li>
+    <li>Почему в <code>elif</code> условия часто идут по убыванию?</li>
+    <li>Что такое цикл <code>while</code>?</li>
+    <li>Когда цикл останавливается?</li>
+    <li>Что будет, если забыть изменить переменную внутри <code>while</code>?</li>
+  </ol>
+
+</div>
+
+</body>
+</html>
